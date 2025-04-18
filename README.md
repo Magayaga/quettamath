@@ -1,2 +1,7 @@
-# quettamath
-The Mathematical Library for C!
+# Quettamath
+
+`Quettamath` is a library for the C programming language that mathematics like constants, operations, functions, expressions, and part of the science! It was available for Linux 🐧, macOS 🍎, and Windows Subsystem for Linux 🪟 operating systems!
+
+## Copyright
+
+Copyright (c) 2025 Cyril John Magayaga
