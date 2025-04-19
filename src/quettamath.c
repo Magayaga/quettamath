@@ -2,15 +2,15 @@
 #include <stdarg.h>
 
 // Unary operations
-double positive(double x) {
+double qm_positive(double x) {
     return x;
 }
 
-double negative(double x) {
+double qm_negative(double x) {
     return -x;
 }
 
-double add(size_t count, ...) {
+double qm_add(size_t count, ...) {
     va_list args;
     va_start(args, count);
     double sum = 0.0;
@@ -21,7 +21,7 @@ double add(size_t count, ...) {
     return sum;
 }
 
-double subtract(size_t count, ...) {
+double qm_subtract(size_t count, ...) {
     if (count == 0) return 0.0;
     va_list args;
     va_start(args, count);
@@ -33,7 +33,7 @@ double subtract(size_t count, ...) {
     return result;
 }
 
-double multiply(size_t count, ...) {
+double qm_multiply(size_t count, ...) {
     va_list args;
     va_start(args, count);
     double product = 1.0;
@@ -44,7 +44,7 @@ double multiply(size_t count, ...) {
     return product;
 }
 
-double divide(size_t count, ...) {
+double qm_divide(size_t count, ...) {
     if (count == 0) return 0.0/0.0;
     va_list args;
     va_start(args, count);
@@ -62,7 +62,7 @@ double divide(size_t count, ...) {
     return result;
 }
 
-double min(size_t count, ...) {
+double qm_min(size_t count, ...) {
     if (count == 0) return 0.0/0.0;
     va_list args;
     va_start(args, count);
@@ -75,7 +75,7 @@ double min(size_t count, ...) {
     return m;
 }
 
-double max(size_t count, ...) {
+double qm_max(size_t count, ...) {
     if (count == 0) return 0.0/0.0;
     va_list args;
     va_start(args, count);
@@ -88,11 +88,11 @@ double max(size_t count, ...) {
     return m;
 }
 
-double sq(double x) {
+double qm_sq(double x) {
     return x * x;
 }
 
-double sqrt(double x) {
+double qm_sqrt(double x) {
     if (x < 0) {
         return 0.0/0.0;
     }
@@ -108,12 +108,12 @@ double sqrt(double x) {
     return guess;
 }
 
-double cb(double x) {
+double qm_cb(double x) {
     return x * x * x;
 }
 
 /* Cube root using Newton's method */
-double cbrt(double x) {
+double qm_cbrt(double x) {
     if (x == 0.0) return 0.0;
     double guess = x;
     const double epsilon = 1e-10;
@@ -125,28 +125,28 @@ double cbrt(double x) {
     return guess;
 }
 
-double fabs(double x) {
+double qm_fabs(double x) {
     return x < 0.0 ? -x : x;
 }
 
-double trunc(double x) {
+double qm_trunc(double x) {
     long long t = (long long)x;
     return (double)t;
 }
 
-double floor(double x) {
+double qm_floor(double x) {
     double t = trunc(x);
     if (x < 0.0 && t != x) return t - 1.0;
     return t;
 }
 
-double ceil(double x) {
+double qm_ceil(double x) {
     double t = trunc(x);
     if (x > 0.0 && t != x) return t + 1.0;
     return t;
 }
 
-long long gcd(size_t count, ...) {
+long long qm_gcd(size_t count, ...) {
     if (count == 0) return 0;
     va_list args;
     va_start(args, count);
@@ -165,7 +165,7 @@ long long gcd(size_t count, ...) {
     return g;
 }
 
-long long lcm(size_t count, ...) {
+long long qm_lcm(size_t count, ...) {
     if (count == 0) return 0;
     va_list args;
     va_start(args, count);

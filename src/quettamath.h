@@ -9,24 +9,24 @@
 #include <stddef.h>
 
 // Unary operations
-double positive(double x);
-double negative(double x);
+double qm_positive(double x);
+double qm_negative(double x);
 
 // Variadic arithmetic:
-double add(size_t count, ...);
-double subtract(size_t count, ...);
-double multiply(size_t count, ...);
-double divide(size_t count, ...);
+double qm_add(size_t count, ...);
+double qm_subtract(size_t count, ...);
+double qm_multiply(size_t count, ...);
+double qm_divide(size_t count, ...);
 
 // Variadic extremes
-double min(size_t count, ...);
-double max(size_t count, ...);
+double qm_min(size_t count, ...);
+double qm_max(size_t count, ...);
 
-double sq(double x);
-double sqrt(double x);
-double fabs(double x);
-double floor(double x);
-double ceil(double x);
-double trunc(double x);
+double qm_sq(double x);
+double qm_sqrt(double x);
+double qm_fabs(double x);
+double qm_floor(double x);
+double qm_ceil(double x);
+double qm_trunc(double x);
 
 #endif // QUETTAMATH_H
