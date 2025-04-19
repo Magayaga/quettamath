@@ -1,6 +1,17 @@
 #include "quettamath.h"
 #include <stdarg.h>
 
+/* Mathematical constants */
+struct qm_constant {
+    double PI;
+    double E;
+};
+
+const struct qm_constant qm_constants = {
+    .PI = 3.14159265358979323846,
+    .E = 2.71828182845904523536
+};
+
 // Unary operations
 double qm_positive(double x) {
     return x;
@@ -180,4 +191,12 @@ long long qm_lcm(size_t count, ...) {
     }
     va_end(args);
     return l;
+}
+
+double qm_degrees(double radians) {
+    return radians * (180.0 / qm_constants.PI);
+}
+
+double qm_radians(double degrees) {
+    return degrees * (qm_constants.PI / 180.0);
 }
