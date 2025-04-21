@@ -1,3 +1,8 @@
+/*
+ * QUETTAMATH - MATHEMATICAL LIBRARY FOR THE C PROGRAMMING LANGUAGE
+ * COPYRIGHT (c) 2025 CYRIL JOHN MAGAYAGA
+ */
+
 #include "quettamath.h"
 #include <stdarg.h>
 
@@ -11,7 +16,7 @@ struct qm_constant {
 const struct qm_constant qm_constants = {
     .PI = 3.14159265358979323846,
     .E = 2.71828182845904523536,
-    .TAU = 2 * .PI
+    .TAU = 2 * 3.1415926535897932384
 };
 
 // Positive
