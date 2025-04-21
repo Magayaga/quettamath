@@ -1,26 +1,30 @@
 #include "quettamath.h"
 #include <stdarg.h>
 
-/* Mathematical constants */
+// Mathematical constants
 struct qm_constant {
     double PI;
     double E;
+    double TAU;
 };
 
 const struct qm_constant qm_constants = {
     .PI = 3.14159265358979323846,
-    .E = 2.71828182845904523536
+    .E = 2.71828182845904523536,
+    .TAU = 2 * .PI
 };
 
-// Unary operations
+// Positive
 double qm_positive(double x) {
     return x;
 }
 
+// Negative
 double qm_negative(double x) {
     return -x;
 }
 
+// Addition
 double qm_add(size_t count, ...) {
     va_list args;
     va_start(args, count);
@@ -32,6 +36,7 @@ double qm_add(size_t count, ...) {
     return sum;
 }
 
+// Subtraction
 double qm_subtract(size_t count, ...) {
     if (count == 0) return 0.0;
     va_list args;
@@ -44,6 +49,7 @@ double qm_subtract(size_t count, ...) {
     return result;
 }
 
+// Multiplication
 double qm_multiply(size_t count, ...) {
     va_list args;
     va_start(args, count);
@@ -55,6 +61,7 @@ double qm_multiply(size_t count, ...) {
     return product;
 }
 
+// Division
 double qm_divide(size_t count, ...) {
     if (count == 0) return 0.0/0.0;
     va_list args;
@@ -63,7 +70,7 @@ double qm_divide(size_t count, ...) {
     for (size_t i = 1; i < count; ++i) {
         double d = va_arg(args, double);
         if (d == 0.0) {
-            /* division by zero yields NaN */
+            // division by zero
             result = 0.0/0.0;
             break;
         }
@@ -73,6 +80,7 @@ double qm_divide(size_t count, ...) {
     return result;
 }
 
+// Minimum
 double qm_min(size_t count, ...) {
     if (count == 0) return 0.0/0.0;
     va_list args;
@@ -86,6 +94,7 @@ double qm_min(size_t count, ...) {
     return m;
 }
 
+// Maximum
 double qm_max(size_t count, ...) {
     if (count == 0) return 0.0/0.0;
     va_list args;
@@ -99,10 +108,12 @@ double qm_max(size_t count, ...) {
     return m;
 }
 
+// Square number
 double qm_sq(double x) {
     return x * x;
 }
 
+// Square root
 double qm_sqrt(double x) {
     if (x < 0) {
         return 0.0/0.0;
@@ -119,11 +130,12 @@ double qm_sqrt(double x) {
     return guess;
 }
 
+// Cube number
 double qm_cb(double x) {
     return x * x * x;
 }
 
-/* Cube root using Newton's method */
+// Cube root
 double qm_cbrt(double x) {
     if (x == 0.0) return 0.0;
     double guess = x;
@@ -136,27 +148,32 @@ double qm_cbrt(double x) {
     return guess;
 }
 
+// Float Absolute Value
 double qm_fabs(double x) {
     return x < 0.0 ? -x : x;
 }
 
+// Truncate
 double qm_trunc(double x) {
     long long t = (long long)x;
     return (double)t;
 }
 
+// Floor
 double qm_floor(double x) {
     double t = trunc(x);
     if (x < 0.0 && t != x) return t - 1.0;
     return t;
 }
 
+// Ceiling
 double qm_ceil(double x) {
     double t = trunc(x);
     if (x > 0.0 && t != x) return t + 1.0;
     return t;
 }
 
+// GCD (Greatest Common Divisor)
 long long qm_gcd(size_t count, ...) {
     if (count == 0) return 0;
     va_list args;
@@ -176,6 +193,7 @@ long long qm_gcd(size_t count, ...) {
     return g;
 }
 
+// LCM (Least Common Multiple)
 long long qm_lcm(size_t count, ...) {
     if (count == 0) return 0;
     va_list args;
@@ -193,10 +211,12 @@ long long qm_lcm(size_t count, ...) {
     return l;
 }
 
+// Degrees to Radians
 double qm_degrees(double radians) {
     return radians * (180.0 / qm_constants.PI);
 }
 
+// Radians to Degrees
 double qm_radians(double degrees) {
     return degrees * (qm_constants.PI / 180.0);
 }
