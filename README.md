@@ -4,4 +4,4 @@
 
 ## Copyright
 
-Copyright (c) 2025 Cyril John Magayaga
+Copyright (c) 2025-2026 Cyril John Magayaga
